@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bakery Sales Simulation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff7f2;
+      color: #333;
+    }
+    header {
+      background: #ffbfa9;
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .catalog {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .item {
+      background: white;
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .item img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .item h3 {
+      margin: 10px 0 5px;
+    }
+    .item p {
+      font-size: 0.9rem;
+    }
+    .item button {
+      background: #ff8f70;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .item button:hover {
+      background: #ff6d47;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.jpeg" alt="Toro's Bakery Logo" style="height:120px; display:block; margin:0 auto;">
+    <div>Our Bakery Catalog</div>
+  </header>
+
+  <section class="catalog" id="catalog"></section>
+
+  <script>
+    const products = [
+      { name: "Classic Vanilla Cake", description: "We are baking a soft and moist vanilla cake with creamy decoration.", price: "6 servings – $180 | 10 servings – $260 | 20 servings – $420", img: "vanilla_cake.jpg" },
+      { name: "Triple Chocolate Cake", description: "We are preparing a rich chocolate cake with creamy filling and glossy topping.", price: "6 servings – $220 | 10 servings – $320 | 20 servings – $520", img: "triple_chocolate.jpg" },
+      { name: "Red Velvet Cake", description: "We are making a fluffy red velvet cake with cream cheese frosting.", price: "6 servings – $240 | 10 servings – $350 | 20 servings – $580", img: "red_velvet.jpg" },
+      { name: "Custom Themed Cake", description: "We are designing custom themed cakes with 3D styles and character designs.", price: "Starting at $650", img: "custom_cake.jpg" },
+      { name: "Classic Cupcake Box", description: "We are decorating vanilla, chocolate, and strawberry cupcakes with pastel frosting.", price: "6 pcs – $120 | 12 pcs – $200", img: "classic_cupcakes.jpg" },
+      { name: "Gourmet Cupcakes", description: "We are preparing gourmet cupcakes in red velvet, Oreo, salted caramel, and lemon meringue.", price: "6 pcs – $180 | 12 pcs – $320", img: "gourmet_cupcakes.jpg" },
+      { name: "Custom Cupcakes", description: "We are creating personalized cupcakes with themed toppers and custom colors.", price: "From $30 each", img: "custom_cupcakes.jpg" },
+      { name: "Decorated Butter Cookies", description: "We are hand-decorating butter cookies with royal icing.", price: "From $12 each (min 12)", img: "decorated_cookies.jpg" },
+      { name: "ChocoChunk Cookies", description: "We are baking soft-and-crunchy ChocoChunk cookies.", price: "6 pcs – $70 | 12 pcs – $120", img: "chocochunk.jpg" },
+      { name: "Oatmeal Raisin Cookies", description: "We are preparing traditional oatmeal raisin cookies with no preservatives.", price: "6 pcs – $60 | 12 pcs – $100", img: "oatmeal_raisin.jpg" },
+      { name: "Cheesecake Cups", description: "We are assembling cheesecake cups with strawberries, berries, or caramel.", price: "$45 each", img: "cheesecake_cup.jpg" },
+      { name: "Brownies", description: "We are baking classic brownies, with or without nuts.", price: "$25 each | Box of 6 – $130", img: "brownies.jpg" },
+      { name: "Mini Tarts", description: "We are preparing mini tarts with fruit, pastry cream, or chocolate.", price: "$40 each", img: "mini_tarts.jpg" },
+      { name: "Cinnamon Rolls", description: "We are glazing warm cinnamon rolls with vanilla or cream cheese frosting.", price: "$30 each | Box of 6 – $150", img: "cinnamon_rolls.jpg" },
+      { name: "Artisan Conchas", description: "We are baking artisan conchas in chocolate, vanilla, and strawberry.", price: "$12 each | Pack of 6 – $60", img: "conchas.jpg" },
+      { name: "Homemade Pound Cake", description: "We are baking homemade pound cake in orange, lemon, or marble flavor.", price: "$90 large loaf", img: "pound_cake.jpg" },
+      { name: "Birthday Package", description: "We are assembling a birthday package with a 10-serving cake, 12 cupcakes, and 12 custom cookies.", price: "$850", img: "birthday_package.jpg" },
+      { name: "Kids Party Package", description: "We are preparing a themed cake, 24 custom cupcakes, and 24 decorated cookies.", price: "$1480", img: "kids_party.jpg" }
+    ];
+
+    const container = document.getElementById('catalog');
+    products.forEach(p => {
+      const item = document.createElement('div');
+      item.className = 'item';
+      item.innerHTML = `
+        <img src="${p.img}" alt="${p.name}">
+        <h3>${p.name}</h3>
+        <p>${p.description}</p>
+        <p><strong>${p.price}</strong></p>
+        <button>We are adding to cart</button>
+      `;
+      container.appendChild(item);
+    });
+  </script>
+</body>
+</html>
